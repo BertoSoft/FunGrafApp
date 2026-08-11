@@ -19,7 +19,7 @@
             android:id="@+id/etFuncion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textNoSuggestions" />
+            android:inputType="textVisiblePassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Contenedor Horizontal para los Límites -->

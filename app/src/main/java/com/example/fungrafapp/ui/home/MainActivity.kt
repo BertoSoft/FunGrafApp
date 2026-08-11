@@ -5,6 +5,7 @@ import android.view.KeyEvent
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
 import com.example.fungrafapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,10 +17,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Aqui empieza mi codigo
         initUi();
         initListeners()
     }
 
+    //Funciones App
     private fun initListeners() {
 
         //etFuncion Captura tecla ENTER
@@ -32,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                     ev.action == KeyEvent.ACTION_DOWN
 
             if(teclaEnter || teclaEnterFisica){
-                etFuncionPressEnter()
+                keyEnteretFuncion(binding.etFuncion.text.toString())
                 true // Avisamos que ya procesamos esta pulsacion
             }
             else{
@@ -41,17 +44,28 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun etFuncionPressEnter() {
-        Toast.makeText(
-            this,
-            "Debes especificar una función matemática.",
-            Toast.LENGTH_SHORT
-        ).show()
-        binding.etFuncion.requestFocus();
+    private fun initUi() {
+        binding.btnGraficar.isEnabled = false
+        binding.etLimiteInferior.isEnabled = false
+        binding.etLimiteSuperior.isEnabled = false
+        binding.etFuncion.requestFocus()
     }
 
-    private fun initUi() {
-        binding.btnGraficar.isEnabled = false;
-        binding.etFuncion.requestFocus()
+    // Funciones Privadas
+    fun keyEnteretFuncion(strFuncion: String) {
+        if(strFuncion.isEmpty()){
+            Toast.makeText(
+                this,
+                "Debes de especificar una Funcion",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+        else{
+            // Procesamos la sintaxis de la ecuacion
+
+            binding.etLimiteInferior.isEnabled = true
+            binding.etLimiteSuperior.isEnabled = true
+            binding.etLimiteInferior.requestFocus()
+        }
     }
 }
