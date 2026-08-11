@@ -19,6 +19,7 @@
             android:id="@+id/etFuncion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:selectAllOnFocus="true"
             android:inputType="textVisiblePassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -43,6 +44,7 @@
                 android:id="@+id/etLimiteInferior"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:selectAllOnFocus="true"
                 android:inputType="numberSigned|numberDecimal" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -59,6 +61,7 @@
                 android:id="@+id/etLimiteSuperior"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:selectAllOnFocus="true"
                 android:inputType="numberSigned|numberDecimal" />
         </com.google.android.material.textfield.TextInputLayout>
 
