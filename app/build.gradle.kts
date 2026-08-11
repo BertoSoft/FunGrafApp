@@ -5,7 +5,7 @@ plugins {
 android {
     namespace = "com.example.fungrafapp"
     compileSdk {
-        version = release(36) {
+        version = release(37) {
             minorApiLevel = 1
         }
     }
@@ -27,6 +27,15 @@ android {
             }
         }
     }
+
+    //
+    // Añadido por mi
+    //
+    buildFeatures{
+        viewBinding = true
+    }
+
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
